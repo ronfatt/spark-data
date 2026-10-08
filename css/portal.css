@@ -2606,3 +2606,305 @@ body.portal-mode {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   OFFICIAL SOCIAL & COMMUNITY INTEGRATION STYLES (X & TELEGRAM)
+   ========================================================================== */
+
+/* 1. Header Social Group */
+.header-social-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--portal-border);
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-social-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.header-social-icon-btn.tg-btn:hover {
+  background: rgba(34, 158, 217, 0.2);
+  border-color: #229ED9;
+  color: #229ED9;
+  box-shadow: 0 0 16px rgba(34, 158, 217, 0.4);
+}
+
+@media (max-width: 1080px) {
+  .header-social-group {
+    display: none;
+  }
+}
+
+/* 2. Hero Social Badges */
+.hero-social-badge {
+  text-decoration: none;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.hero-social-badge:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.hero-social-badge.tg-hero-badge:hover {
+  background: rgba(34, 158, 217, 0.18) !important;
+  border-color: rgba(34, 158, 217, 0.5) !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 16px rgba(34, 158, 217, 0.35);
+}
+
+/* 3. Mobile Drawer Social Row */
+.drawer-social-row {
+  display: flex;
+  gap: 10px;
+}
+
+.drawer-social-chip {
+  flex: 1;
+  padding: 11px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--portal-border);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.drawer-social-chip:hover, .drawer-social-chip:active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.drawer-social-chip.tg-chip:hover, .drawer-social-chip.tg-chip:active {
+  background: rgba(34, 158, 217, 0.18);
+  border-color: rgba(34, 158, 217, 0.45);
+  color: #38bdf8;
+}
+
+/* 4. CTA Community Gateway Cards */
+.cta-community-gateway {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 420px));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 36px;
+  text-align: left;
+}
+
+.cta-community-card {
+  background: rgba(14, 21, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-community-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cta-community-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.cta-community-card:hover::before {
+  opacity: 1;
+}
+
+.cta-community-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cta-community-icon.tg-icon {
+  background: rgba(34, 158, 217, 0.15);
+  border: 1px solid rgba(34, 158, 217, 0.35);
+  color: #229ED9;
+}
+
+.cta-community-icon.x-icon {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.cta-community-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cta-community-badge {
+  font-size: 0.65rem;
+  font-family: var(--font-portal-mono);
+  font-weight: 700;
+  color: var(--portal-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.cta-community-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.cta-community-info p {
+  font-size: 0.78rem;
+  color: var(--portal-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cta-community-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.cta-community-link-btn:hover {
+  background: #ffffff;
+  color: #040711;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .cta-community-gateway {
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+  }
+
+  .cta-community-card {
+    padding: 18px;
+  }
+}
+
+/* 5. Footer Social Buttons */
+.footer-social-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footer-social-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.footer-social-btn.tg-btn:hover {
+  background: rgba(34, 158, 217, 0.2);
+  border-color: rgba(34, 158, 217, 0.5);
+  color: #38bdf8;
+}
+
+/* 6. Pitch Deck Slide Social Pill */
+.slide-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-social-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.slide-social-pill.tg-pill:hover {
+  background: rgba(34, 158, 217, 0.25);
+  border-color: #229ED9;
+  color: #38bdf8;
+  box-shadow: 0 0 20px rgba(34, 158, 217, 0.4);
+}
+
