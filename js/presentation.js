@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = sec.getAttribute('data-title') || `Slide ${idx + 1}`;
       const item = document.createElement('a');
       item.className = `drawer-item ${idx === currentIndex ? 'active' : ''}`;
-      item.href = `#slide-${idx + 1}`;
+      item.href = 'javascript:void(0);';
+      item.setAttribute('data-slide-index', idx);
       item.innerHTML = `
         <span class="drawer-item-num">${String(idx + 1).padStart(2, '0')}</span>
         <span class="drawer-item-title">${title}</span>
@@ -69,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.classList.toggle('active', idx === currentIndex);
     });
 
-    // Update URL hash without jitter
-    history.replaceState(null, null, `#slide-${currentIndex + 1}`);
+    // Note: Do not force #slide-N to URL bar to prevent overriding the main portal home route (#home)
   }
 
   function goToSlide(index) {

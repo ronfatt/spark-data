@@ -4,6 +4,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Clean URL hash if visitor landed with legacy slide hash or hero hash
+  if (window.location.hash.startsWith('#slide-') || window.location.hash === '#hero') {
+    try {
+      history.replaceState(null, null, window.location.pathname + window.location.search + '#home');
+    } catch (_) {}
+  }
   // =========================================================================
   // 1. ASSET DATA REGISTRY & REAL-TIME MARKET ENGINE
   // =========================================================================
@@ -1400,28 +1406,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mobile Bottom Dock Scroll Active Tracking
+  // Unified Desktop & Mobile Nav Scroll Spy Tracking
+  const desktopNavLinks = document.querySelectorAll('.nav-segment-link');
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
   const dockTabs = document.querySelectorAll('.dock-tab-btn');
+
   const trackedSections = [
-    { id: 'hero', el: document.getElementById('hero') },
+    { id: 'home', el: document.getElementById('home') || document.getElementById('hero') },
     { id: 'terminal', el: document.getElementById('terminal') },
-    { id: 'library-section', el: document.getElementById('library-section') }
+    { id: 'library-section', el: document.getElementById('library-section') },
+    { id: 'scale', el: document.getElementById('scale') },
+    { id: 'discovery', el: document.getElementById('discovery') },
+    { id: 'impact', el: document.getElementById('impact') }
   ];
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY + 180;
-    let currentId = 'hero';
+    let currentId = 'home';
+
     trackedSections.forEach(sec => {
       if (sec.el && sec.el.offsetTop <= scrollY) {
         currentId = sec.id;
       }
     });
+
+    // Update Desktop Capsule Nav Active
+    desktopNavLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${currentId}` || (currentId === 'home' && href === '#hero')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Update Mobile Bottom Dock Active
     dockTabs.forEach(tab => {
       const href = tab.getAttribute('href');
-      if (href === `#${currentId}`) {
+      if (href === `#${currentId}` || (currentId === 'home' && href === '#hero')) {
         tab.classList.add('active');
       } else if (href && href.startsWith('#')) {
         tab.classList.remove('active');
+      }
+    });
+
+    // Update Mobile Drawer Items Active
+    mobileNavItems.forEach(item => {
+      const href = item.getAttribute('href');
+      if (href === `#${currentId}` || (currentId === 'home' && href === '#hero')) {
+        item.classList.add('active');
+      } else if (href && href.startsWith('#')) {
+        item.classList.remove('active');
       }
     });
   }, { passive: true });
