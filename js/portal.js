@@ -1460,4 +1460,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { passive: true });
+
+  // Interactive 3D Parallax Tilt on Hero Visual Artwork
+  const heroArt = document.getElementById('hero-interactive-art');
+  const heroSection = document.getElementById('home');
+  if (heroArt && heroSection && window.matchMedia('(min-width: 860px)').matches) {
+    let targetX = 0, targetY = 0;
+    let curX = 0, curY = 0;
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      targetX = x * 20; // max 20px
+      targetY = y * 16;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      targetX = 0;
+      targetY = 0;
+    });
+
+    const updateParallax = () => {
+      curX += (targetX - curX) * 0.08;
+      curY += (targetY - curY) * 0.08;
+      heroArt.style.transform = `translate(${curX}px, ${curY}px) rotate(${curX * 0.08}deg)`;
+      requestAnimationFrame(updateParallax);
+    };
+    requestAnimationFrame(updateParallax);
+  }
 });
