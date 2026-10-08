@@ -1,0 +1,15 @@
+{
+  "name": "spark-one-web-presentation",
+  "version": "1.0.0",
+  "description": "Spark One 23-Page Interactive Web Presentation Slide",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --port 3000",
+    "start": "vite --host --port 3000",
+    "build": "vite build",
+    "preview": "vite preview --port 3000"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14"
+  }
+}

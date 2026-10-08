@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPARK Union Capital | 连接科技与未来价值 - 全球智能财富管理平台</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/spark_icon_violet.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/presentation.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body class="portal-mode">
+
+  <!-- Ambient Dynamic Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+  <div class="ambient-glow glow-center"></div>
+
+  <!-- =========================================================================
+       1. SITE HEADER (Redesigned 3-Piece Symmetrical Layout with Floating Capsule)
+       ========================================================================= -->
+  <header class="portal-header">
+    <!-- Left: Brand Identity -->
+    <div class="header-brand-wrap">
+      <a href="#hero" class="portal-logo-link" aria-label="SPARK Union Capital">
+        <img src="assets/spark_brand_full.png" alt="SPARK UNION CAPITAL" class="header-brand-logo-img">
+      </a>
+      <span class="brand-live-pill" title="全球节点同步在线">
+        <span class="pulse-dot-green"></span>
+        <span class="pill-label">LIVE</span>
+      </span>
+    </div>
+
+    <!-- Center: Floating Capsule Segmented Navigation (Desktop) -->
+    <nav class="portal-floating-nav" aria-label="主要导航">
+      <a href="#hero" class="nav-segment-link active">首页</a>
+      <a href="#terminal" class="nav-segment-link">
+        工作台
+        <span class="nav-chip-dot"></span>
+      </a>
+      <a href="#library-section" class="nav-segment-link">
+        资料中心
+        <span class="nav-chip-badge">10+</span>
+      </a>
+      <a href="#scale" class="nav-segment-link">实力规模</a>
+      <a href="#discovery" class="nav-segment-link">多维探索</a>
+      <a href="#impact" class="nav-segment-link">全球公益</a>
+    </nav>
+
+    <!-- Right: Utility Suite & CTA -->
+    <div class="header-action-suite">
+      <!-- Quick Command Search (Cmd+K) -->
+      <button class="header-cmd-search-btn" id="open-cmd-palette-btn" title="快捷搜索 (⌘K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="cmd-label">搜索</span>
+        <kbd>⌘K</kbd>
+      </button>
+
+      <!-- 23P Pitch Deck Ghost Pill -->
+      <button class="header-deck-pill trigger-open-deck" title="放映 23 页 Pitch Deck">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        <span>23P 路演</span>
+      </button>
+
+      <!-- Sound Toggle Button -->
+      <button class="header-tool-btn" id="sound-toggle-btn" title="科技音效开关">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+      </button>
+
+      <!-- Primary DApp CTA Button -->
+      <a class="header-dapp-pill" href="https://dapp.sparkunioncapital.com/" target="_blank" rel="noopener noreferrer">
+        <span>进入 DApp</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+        </svg>
+      </a>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="切换菜单" aria-expanded="false">
+        <span class="hamburger-line line-1"></span>
+        <span class="hamburger-line line-2"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       1.1 MOBILE FULLSCREEN NAVIGATION DRAWER
+       ========================================================================= -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <div class="drawer-header-meta">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <img src="assets/spark_icon_violet.png" alt="Spark" style="width:26px; height:26px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(118,75,255,0.6));">
+          <div class="drawer-status-badge">
+            <span class="pulse-dot-green"></span>
+            <span>节点在线 · 18ms</span>
+          </div>
+        </div>
+        <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="关闭抽屉">&times;</button>
+      </div>
+
+      <div class="mobile-nav-links-list">
+        <a href="#hero" class="mobile-nav-item active">
+          <div class="nav-item-icon">🏠</div>
+          <div class="nav-item-text">
+            <strong>首页概览</strong>
+            <small>科技与未来价值</small>
+          </div>
+        </a>
+
+        <a href="#terminal" class="mobile-nav-item">
+          <div class="nav-item-icon">📈</div>
+          <div class="nav-item-text">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <strong>实时量化工作台</strong>
+              <span class="nav-chip-dot"></span>
+            </div>
+            <small>4大资产走势 · 盘口深度 · AI宏观推演</small>
+          </div>
+        </a>
+
+        <a href="#library-section" class="mobile-nav-item">
+          <div class="nav-item-icon">📚</div>
+          <div class="nav-item-text">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <strong>官方资料中心</strong>
+              <span class="nav-chip-badge">10+ 篇</span>
+            </div>
+            <small>官方MSB备案 · 商业路演 · 黄金量化研报 · 4K海报</small>
+          </div>
+        </a>
+
+        <a href="#scale" class="mobile-nav-item">
+          <div class="nav-item-icon">🏛️</div>
+          <div class="nav-item-text">
+            <strong>实力数据与规模</strong>
+            <small>480M+ AUM · 12B+ 年交易量</small>
+          </div>
+        </a>
+
+        <a href="#discovery" class="mobile-nav-item">
+          <div class="nav-item-icon">🌐</div>
+          <div class="nav-item-text">
+            <strong>多维空间探索</strong>
+            <small>资产数字化 · 智能量化核心</small>
+          </div>
+        </a>
+
+        <a href="#impact" class="mobile-nav-item">
+          <div class="nav-item-icon">❤️</div>
+          <div class="nav-item-text">
+            <strong>全球公益足迹</strong>
+            <small>尼日利亚助学 · 首都电视台专题实录</small>
+          </div>
+        </a>
+
+        <button class="mobile-nav-item trigger-open-deck" style="width:100%; text-align:left; background:rgba(0,240,255,0.06); border:1px solid rgba(0,240,255,0.25); cursor:pointer;">
+          <div class="nav-item-icon">📽️</div>
+          <div class="nav-item-text">
+            <strong style="color:var(--portal-cyan);">放映 23 页 Pitch Deck</strong>
+            <small>官方全屏商业路演演示文稿</small>
+          </div>
+        </button>
+      </div>
+
+      <!-- Mobile Drawer Footer Tools -->
+      <div class="mobile-drawer-footer">
+        <div class="drawer-tool-row">
+          <button class="drawer-action-chip" id="mobile-search-trigger">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            快捷检索 (⌘K)
+          </button>
+          <button class="drawer-action-chip" id="mobile-sound-trigger">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            科技音效开关
+          </button>
+        </div>
+
+        <a class="mobile-drawer-dapp-btn" href="https://dapp.sparkunioncapital.com/" target="_blank" rel="noopener noreferrer">
+          <span>进入 SPARK ONE DApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+        <div class="drawer-legal-note">
+          © 2026 SPARK UNION CAPITAL INC. · FinCEN MSB Registered
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. PORTAL HERO SECTION (Ultra High-End Aesthetics & Mobile Launchpad)
+       ========================================================================= -->
+  <section class="portal-hero" id="hero">
+    <div class="portal-hero-mesh"></div>
+    <div class="portal-hero-inner">
+      <div class="portal-hero-meta">
+        <span class="portal-brand-badge">
+          <span class="pulse-dot-green"></span>
+          SPARK UNION CAPITAL INC.
+        </span>
+        <button class="portal-film-btn trigger-play-video" title="播放尼日利亚国家电视台公益报道实录">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          电视台纪实实录
+        </button>
+        <button class="portal-film-btn trigger-open-deck">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          23P 官方路演
+        </button>
+      </div>
+
+      <h1 class="portal-hero-title">
+        连接全球市场<br>
+        <span>开启数字新视野</span>
+      </h1>
+
+      <p class="portal-hero-summary">
+        数字货币、外汇储备、科技美股与大宗黄金期货。连接全球优质资产，探索实时数据与 AI 量化策略新视角。让智能模型读懂不同宏观情景，赋能下一代全球智能财富管理生态。
+      </p>
+
+      <div class="portal-actions">
+        <a class="portal-btn-primary" href="https://dapp.sparkunioncapital.com/" target="_blank" rel="noopener noreferrer">
+          <span>进入 DApp 终端</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+          </svg>
+        </a>
+
+        <a href="#terminal" class="portal-btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>进入实时工作台</span>
+        </a>
+
+        <a href="#library-section" class="portal-btn-outline" style="border-color:rgba(0,240,255,0.3); color:var(--portal-cyan);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>查阅资料中心 (10+)</span>
+        </a>
+      </div>
+
+      <!-- Hero Visual Showcase Banners (Explosive visual upgrade) -->
+      <div class="hero-showcase-banners">
+        <div class="hero-banner-card trigger-open-deck" title="点击查看 AI 量化宏观蓝图">
+          <img src="assets/posters/spark-concept-hero.jpg" alt="SPARK ONE 全球智能财富架构" class="hero-banner-img">
+          <div class="hero-banner-glass">
+            <div class="hero-banner-tag">全球前瞻 · CONCEPT</div>
+            <div class="hero-banner-title">AI 量化与多资产互联架构</div>
+            <span class="hero-banner-link">开启路演探秘 &rarr;</span>
+          </div>
+        </div>
+
+        <div class="hero-banner-card trigger-poster-modal" data-poster="assets/posters/spark-ai-blueprint.jpg" data-title="SPARK ONE：AI量化全球财富蓝图" title="点击查看高清架构大图">
+          <img src="assets/posters/spark-ai-blueprint.jpg" alt="AI 量化全球财富蓝图" class="hero-banner-img">
+          <div class="hero-banner-glass">
+            <div class="hero-banner-tag" style="border-color:rgba(0,255,135,0.3); color:var(--portal-emerald);">核心蓝图 · BLUEPRINT</div>
+            <div class="hero-banner-title">AI 量化全球财富全景架构图</div>
+            <span class="hero-banner-link" style="color:var(--portal-emerald);">查看高清全景海报 &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Exclusive Launchpad Quick Entrances -->
+      <nav class="portal-mobile-launchpad" aria-label="移动快捷工具">
+        <a href="#terminal" class="launchpad-item">
+          <div class="launchpad-icon" style="color:var(--portal-cyan); background:rgba(0,240,255,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div class="launchpad-meta">
+            <strong>实时量化工作台</strong>
+            <span>实时图表 · 盘口深度 · AI推演</span>
+          </div>
+          <svg class="launchpad-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+
+        <a href="#library-section" class="launchpad-item">
+          <div class="launchpad-icon" style="color:#a855f7; background:rgba(168,85,247,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <div class="launchpad-meta">
+            <strong>官方资料与投研库</strong>
+            <span>MSB备案 · 黄金研报 · 三语手册</span>
+          </div>
+          <svg class="launchpad-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+
+        <button class="launchpad-item trigger-open-deck">
+          <div class="launchpad-icon" style="color:var(--portal-emerald); background:rgba(0,255,135,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="launchpad-meta">
+            <strong>23P 官方商业路演</strong>
+            <span>全屏全景演示幻灯片</span>
+          </div>
+          <svg class="launchpad-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. LIVE REAL-TIME MARKET TICKER BAR (Aligned with sparkai.cc & Upgraded)
+       ========================================================================= -->
+  <section class="market-ticker-section" aria-label="数字资产与全球市场实时行情">
+    <div class="market-topline">
+      <div class="market-topline-left">
+        <span class="pulse-dot-green"></span>
+        <strong style="color:#fff;">全球市场 7&times;24H 实时行情</strong>
+        <span>计价基准：USD</span>
+      </div>
+      <div class="market-topline-right">
+        <span>数据流：Binance &amp; Global Quant Feed</span>
+        <button class="ticker-pause-btn" id="ticker-pause-toggle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+          暂停滚动
+        </button>
+      </div>
+    </div>
+
+    <div class="ticker-track-wrapper">
+      <div class="ticker-track" id="market-ticker-track">
+        <!-- Item 1: BTC -->
+        <div class="ticker-card" data-cat="crypto" data-inst="BTC">
+          <span style="font-size:1.25rem; color:#f7931a;">₿</span>
+          <div>
+            <div class="coin-badge">BTC <span class="coin-sub">Bitcoin</span></div>
+            <div class="coin-price" data-ticker-price="BTC">$ 68,420.50</div>
+          </div>
+          <span class="coin-change up">+3.42%</span>
+        </div>
+
+        <!-- Item 2: ETH -->
+        <div class="ticker-card" data-cat="crypto" data-inst="ETH">
+          <span style="font-size:1.25rem; color:#627eea;">Ξ</span>
+          <div>
+            <div class="coin-badge">ETH <span class="coin-sub">Ethereum</span></div>
+            <div class="coin-price" data-ticker-price="ETH">$ 3,540.20</div>
+          </div>
+          <span class="coin-change up">+2.18%</span>
+        </div>
+
+        <!-- Item 3: SOL -->
+        <div class="ticker-card" data-cat="crypto" data-inst="SOL">
+          <span style="font-size:1.25rem; color:#14f195;">◎</span>
+          <div>
+            <div class="coin-badge">SOL <span class="coin-sub">Solana</span></div>
+            <div class="coin-price" data-ticker-price="SOL">$ 182.60</div>
+          </div>
+          <span class="coin-change up">+6.75%</span>
+        </div>
+
+        <!-- Item 4: XAU (Gold) -->
+        <div class="ticker-card" data-cat="futures" data-inst="GC">
+          <span style="font-size:1.25rem; color:#fbbf24;">●</span>
+          <div>
+            <div class="coin-badge">XAU/USD <span class="coin-sub">黄金现货</span></div>
+            <div class="coin-price" data-ticker-price="GC">$ 2,685.40</div>
+          </div>
+          <span class="coin-change up">+1.12%</span>
+        </div>
+
+        <!-- Item 5: NVDA -->
+        <div class="ticker-card" data-cat="stocks" data-inst="NVDA">
+          <span style="font-size:1.25rem; color:#76b900;">▲</span>
+          <div>
+            <div class="coin-badge">NVDA <span class="coin-sub">英伟达</span></div>
+            <div class="coin-price" data-ticker-price="NVDA">$ 132.80</div>
+          </div>
+          <span class="coin-change up">+4.89%</span>
+        </div>
+
+        <!-- Item 6: BNB -->
+        <div class="ticker-card" data-cat="crypto" data-inst="BNB">
+          <span style="font-size:1.25rem; color:#f3ba2f;">⬡</span>
+          <div>
+            <div class="coin-badge">BNB <span class="coin-sub">BNB</span></div>
+            <div class="coin-price" data-ticker-price="BNB">$ 590.10</div>
+          </div>
+          <span class="coin-change down">-0.45%</span>
+        </div>
+
+        <!-- Item 7: EUR/USD -->
+        <div class="ticker-card" data-cat="forex" data-inst="EURUSD">
+          <span style="font-size:1.25rem; color:#38bdf8;">€</span>
+          <div>
+            <div class="coin-badge">EUR/USD <span class="coin-sub">欧元</span></div>
+            <div class="coin-price" data-ticker-price="EURUSD">1.0842</div>
+          </div>
+          <span class="coin-change down">-0.15%</span>
+        </div>
+
+        <!-- Item 8: AAPL -->
+        <div class="ticker-card" data-cat="stocks" data-inst="AAPL">
+          <span style="font-size:1.25rem; color:#e2e8f0;"></span>
+          <div>
+            <div class="coin-badge">AAPL <span class="coin-sub">苹果公司</span></div>
+            <div class="coin-price" data-ticker-price="AAPL">$ 231.40</div>
+          </div>
+          <span class="coin-change up">+1.05%</span>
+        </div>
+
+        <!-- Item 9: WTI 原油 -->
+        <div class="ticker-card" data-cat="futures" data-inst="CL">
+          <span style="font-size:1.25rem; color:#f97316;">⚡</span>
+          <div>
+            <div class="coin-badge">WTI 原油 <span class="coin-sub">CL</span></div>
+            <div class="coin-price" data-ticker-price="CL">$ 74.80</div>
+          </div>
+          <span class="coin-change down">-1.25%</span>
+        </div>
+
+        <!-- Seamless Duplicate Loop -->
+        <div class="ticker-card" data-cat="crypto" data-inst="BTC">
+          <span style="font-size:1.25rem; color:#f7931a;">₿</span>
+          <div>
+            <div class="coin-badge">BTC <span class="coin-sub">Bitcoin</span></div>
+            <div class="coin-price" data-ticker-price="BTC">$ 68,420.50</div>
+          </div>
+          <span class="coin-change up">+3.42%</span>
+        </div>
+
+        <div class="ticker-card" data-cat="crypto" data-inst="ETH">
+          <span style="font-size:1.25rem; color:#627eea;">Ξ</span>
+          <div>
+            <div class="coin-badge">ETH <span class="coin-sub">Ethereum</span></div>
+            <div class="coin-price" data-ticker-price="ETH">$ 3,540.20</div>
+          </div>
+          <span class="coin-change up">+2.18%</span>
+        </div>
+
+        <div class="ticker-card" data-cat="crypto" data-inst="SOL">
+          <span style="font-size:1.25rem; color:#14f195;">◎</span>
+          <div>
+            <div class="coin-badge">SOL <span class="coin-sub">Solana</span></div>
+            <div class="coin-price" data-ticker-price="SOL">$ 182.60</div>
+          </div>
+          <span class="coin-change up">+6.75%</span>
+        </div>
+
+        <div class="ticker-card" data-cat="futures" data-inst="GC">
+          <span style="font-size:1.25rem; color:#fbbf24;">●</span>
+          <div>
+            <div class="coin-badge">XAU/USD <span class="coin-sub">黄金现货</span></div>
+            <div class="coin-price" data-ticker-price="GC">$ 2,685.40</div>
+          </div>
+          <span class="coin-change up">+1.12%</span>
+        </div>
+
+        <div class="ticker-card" data-cat="stocks" data-inst="NVDA">
+          <span style="font-size:1.25rem; color:#76b900;">▲</span>
+          <div>
+            <div class="coin-badge">NVDA <span class="coin-sub">英伟达</span></div>
+            <div class="coin-price" data-ticker-price="NVDA">$ 132.80</div>
+          </div>
+          <span class="coin-change up">+4.89%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. PRO QUANT TERMINAL & REAL-TIME WORKSPACE (Core Enhancement 1)
+       ========================================================================= -->
+  <section class="portal-section" id="terminal">
+    <div class="section-head">
+      <span class="hud-tag">
+        <span class="pulse-dot-green"></span>
+        PRO TERMINAL · REAL-TIME QUANT ENGINE
+      </span>
+      <h2>全球资产，一个实时研究入口</h2>
+      <p>从数字资产到外汇储备、科技美股与大宗黄金期货。毫秒级刷新真实数据，结合 AI 多情景推演解读市场逻辑。</p>
+    </div>
+
+    <!-- 4 Major Asset Categories -->
+    <div class="terminal-category-tabs">
+      <button class="cat-tab active" data-cat="crypto">
+        <span style="font-size:1.4rem;">🪙</span>
+        <div>
+          <strong>数字货币</strong>
+          <small>BTC · ETH · SOL · BNB</small>
+        </div>
+      </button>
+
+      <button class="cat-tab" data-cat="futures">
+        <span style="font-size:1.4rem;">🏆</span>
+        <div>
+          <strong>大宗期货与黄金</strong>
+          <small>XAU 黄金 · WTI 原油 · ES</small>
+        </div>
+      </button>
+
+      <button class="cat-tab" data-cat="stocks">
+        <span style="font-size:1.4rem;">📈</span>
+        <div>
+          <strong>科技美股</strong>
+          <small>NVDA · AAPL · MSFT</small>
+        </div>
+      </button>
+
+      <button class="cat-tab" data-cat="forex">
+        <span style="font-size:1.4rem;">🌐</span>
+        <div>
+          <strong>外汇储备</strong>
+          <small>EUR/USD · USD/JPY</small>
+        </div>
+      </button>
+    </div>
+
+    <!-- Mobile View Switcher (Segmented Control on Small Screens) -->
+    <div class="mobile-terminal-segmented-ctrl" id="mobile-terminal-views">
+      <button class="mob-view-btn active" data-view="chart">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        实时图表
+      </button>
+      <button class="mob-view-btn" data-view="depth">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+        L2 盘口深度
+      </button>
+      <button class="mob-view-btn" data-view="outlook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path></svg>
+        AI 宏观展望
+      </button>
+    </div>
+
+    <!-- Workspace Grid -->
+    <div class="terminal-workspace-grid">
+      <!-- Left: Interactive Pro Chart Canvas -->
+      <div class="terminal-chart-box">
+        <!-- Sub-instruments selector -->
+        <div class="instrument-selector-bar" id="instrument-selector-bar">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Header Quote & Price -->
+        <div class="chart-header-row">
+          <div>
+            <h3 id="terminal-asset-title" style="font-size:1.45rem; font-weight:800; color:#fff; margin:0 0 4px;">比特币 · BTC / USD</h3>
+            <div id="terminal-asset-sub" style="font-size:0.85rem; color:var(--portal-muted);">全球市值第一数字资产 · 宏观流动性锚定物</div>
+          </div>
+
+          <div style="text-align:right;">
+            <div id="terminal-main-price" class="chart-price-display">$ 68,420.50</div>
+            <div id="terminal-main-change" class="coin-change up">+3.42% 24H</div>
+          </div>
+        </div>
+
+        <!-- Controls Bar: Area vs Candles + Timeframes -->
+        <div class="chart-controls-bar">
+          <div class="chart-type-toggle">
+            <button class="ctrl-btn active" data-type="area">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              平滑线图
+            </button>
+            <button class="ctrl-btn" data-type="candles">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="5" width="6" height="14"></rect><line x1="12" y1="1" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+              K线蜡烛图
+            </button>
+          </div>
+
+          <div class="timeframe-group">
+            <button class="ctrl-btn active" data-window="1d">24H</button>
+            <button class="ctrl-btn" data-window="7d">7D</button>
+            <button class="ctrl-btn" data-window="1m">30D</button>
+            <button class="ctrl-btn" data-window="1y">1Y</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Chart Canvas Container -->
+        <div class="chart-canvas-container">
+          <canvas id="pro-chart-canvas"></canvas>
+          <div class="chart-tooltip-hud" id="chart-tooltip-hud" style="display:none;"></div>
+        </div>
+
+        <!-- 24h Stats Row -->
+        <div class="chart-stats-grid">
+          <div class="stat-item">
+            <label>24H 最高</label>
+            <value id="stat-high-24h">$ 69,280.00</value>
+          </div>
+          <div class="stat-item">
+            <label>24H 最低</label>
+            <value id="stat-low-24h">$ 66,810.00</value>
+          </div>
+          <div class="stat-item">
+            <label>24H 成交额</label>
+            <value id="stat-vol-24h">$ 38.45B</value>
+          </div>
+          <div class="stat-item">
+            <label>买卖点差 (Spread)</label>
+            <value id="stat-spread">0.50</value>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Aside: Live Order Book + AI Multi-Scenario Outlook -->
+      <div class="terminal-aside-box">
+        <!-- Order Book Mini Card -->
+        <div class="aside-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <div style="font-weight:700; color:#fff; display:flex; align-items:center; gap:8px; font-size:0.95rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--portal-cyan)" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+              Level-2 实时盘口深度
+            </div>
+            <span style="font-size:0.72rem; color:var(--portal-emerald); font-family:var(--font-portal-mono);"><span class="pulse-dot-green"></span> 实时撮合</span>
+          </div>
+
+          <div class="orderbook-table" id="terminal-orderbook-rows">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- AI Scenario & Factor Outlook Card -->
+        <div class="aside-card ai-scenario-card">
+          <div style="display:flex; align-items:center; gap:8px; color:var(--portal-cyan);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            <h4 style="margin:0; font-size:1.05rem; color:#fff;">SPARK AI 宏观情景推演</h4>
+          </div>
+
+          <!-- Scenario Probability Bars -->
+          <div style="display:flex; flex-direction:column; gap:8px; margin-top:4px;">
+            <div class="scenario-bar-item">
+              <div class="scenario-label-row">
+                <span style="color:#00ff87;">🟢 基准看涨情景 (Bullish)</span>
+                <strong id="ai-txt-bull" style="font-family:var(--font-portal-mono); color:#00ff87;">68%</strong>
+              </div>
+              <div class="scenario-progress-track">
+                <div class="scenario-progress-fill scenario-fill-green" id="ai-bar-bull" style="width:68%;"></div>
+              </div>
+            </div>
+
+            <div class="scenario-bar-item">
+              <div class="scenario-label-row">
+                <span style="color:#fbbf24;">🟡 震荡盘整情景 (Neutral)</span>
+                <strong id="ai-txt-neut" style="font-family:var(--font-portal-mono); color:#fbbf24;">22%</strong>
+              </div>
+              <div class="scenario-progress-track">
+                <div class="scenario-progress-fill scenario-fill-yellow" id="ai-bar-neut" style="width:22%;"></div>
+              </div>
+            </div>
+
+            <div class="scenario-bar-item">
+              <div class="scenario-label-row">
+                <span style="color:#ff3366;">🔴 防御回调情景 (Bearish)</span>
+                <strong id="ai-txt-bear" style="font-family:var(--font-portal-mono); color:#ff3366;">10%</strong>
+              </div>
+              <div class="scenario-progress-track">
+                <div class="scenario-progress-fill scenario-fill-red" id="ai-bar-bear" style="width:10%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Factor Scores Grid -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; background:rgba(255,255,255,0.02); padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); font-size:0.75rem;">
+            <div>
+              <span style="color:var(--portal-dim);">TITAN 趋势因子:</span>
+              <strong id="ai-titan-score" style="color:var(--portal-cyan); font-family:var(--font-portal-mono); margin-left:4px;">89.4</strong>
+            </div>
+            <div>
+              <span style="color:var(--portal-dim);">ORION 在险系数:</span>
+              <strong id="ai-orion-score" style="color:var(--portal-emerald); font-family:var(--font-portal-mono); margin-left:4px;">0.28</strong>
+            </div>
+            <div>
+              <span style="color:var(--portal-dim);">流动性深度:</span>
+              <strong id="ai-liq-score" style="color:#fff; font-family:var(--font-portal-mono); margin-left:4px;">95.2</strong>
+            </div>
+            <div>
+              <span style="color:var(--portal-dim);">波动率指数 (IV):</span>
+              <strong id="ai-iv-score" style="color:#fff; font-family:var(--font-portal-mono); margin-left:4px;">36.4</strong>
+            </div>
+          </div>
+
+          <p id="ai-scenario-summary" style="font-size:0.82rem; color:var(--portal-muted); line-height:1.55; margin:8px 0 0;">
+            BTC 处于多头突破结构中。链上大额非流动性持仓持续走高，巨鲸积累阶段显著。当前短期均线带（MA7/MA25）维持黄金交叉形态。
+          </p>
+
+          <!-- Interactive AI Question Prompts -->
+          <div class="ai-questions-box">
+            <div style="font-size:0.75rem; color:var(--portal-cyan); font-weight:700; margin-bottom:6px;">向 AI 研究助手一键提问：</div>
+            <button class="ai-chip-btn" data-q="resistance">关键阻力突破分析</button>
+            <button class="ai-chip-btn" data-q="macro">宏观流动性传导机制</button>
+            <button class="ai-chip-btn" data-q="hedging">动态对冲仓位建议</button>
+            <div class="ai-answer-preview" id="ai-answer-preview"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. THE SPARK LIBRARY - 资料中心全景 (Core Enhancement 2)
+       ========================================================================= -->
+  <section class="portal-section" id="library-section">
+    <div class="section-head">
+      <span class="hud-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        THE SPARK LIBRARY · 资料中心
+      </span>
+      <h2>官方文献与量化投研资料库</h2>
+      <p>汇集权威监管备案、公司商业路演、AI 量化深度研报、多语言会员体系指南与全球公益真实纪实影像。</p>
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="library-filter-wrapper">
+      <div class="library-filter-pills" role="tablist">
+        <button class="lib-filter-btn active" data-filter="all">全部资料 <small>10</small></button>
+        <button class="lib-filter-btn" data-filter="poster">🖼️ 官方海报与蓝图 <small>02</small></button>
+        <button class="lib-filter-btn" data-filter="regulatory">📄 官方监管备案 <small>02</small></button>
+        <button class="lib-filter-btn" data-filter="deck">📊 商业路演 <small>02</small></button>
+        <button class="lib-filter-btn" data-filter="quant">📈 量化研报 <small>02</small></button>
+        <button class="lib-filter-btn" data-filter="media">🎥 纪实影像 <small>01</small></button>
+        <button class="lib-filter-btn" data-filter="growth">🎖️ 会员成长体系 <small>01</small></button>
+      </div>
+
+      <div class="library-search-box">
+        <svg class="library-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="library-search-input" id="library-search-input" placeholder="输入关键字检索文献、研报或公证..." autocomplete="off">
+      </div>
+    </div>
+
+    <!-- 8 High-Quality Document Cards Grid -->
+    <div class="library-cards-grid" id="library-cards-grid">
+      <!-- Card 1: Official Business Pitch Deck -->
+      <article class="doc-card" data-category="deck" data-tags="商业路演 23P PPT PDF 商业模式 美韩案例 治理架构">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-deck">商业路演 · PDF</span>
+          <span class="doc-meta-date">2026 最新版</span>
+        </div>
+        <h3 class="doc-card-title">SPARK UNION CAPITAL INC. 官方商业模式介绍 (23P)</h3>
+        <p class="doc-card-desc">
+          系统阐述 Spark One 产品定位、传统金融五大痛点破解、美韩典型案例对比、AI 量化架构与 S1-S9 会员激励机制全案。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">23P 幻灯片</span>
+          <span class="doc-tag">商业模型</span>
+          <span class="doc-tag">AUM 增长</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-preview-doc" data-doc="doc-pitch-deck">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            速览导读
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/docs/SPARK UNION CAPITAL INC. 企业介绍PPT.pdf" download="SPARK UNION CAPITAL 企业介绍PPT.pdf">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载 PDF
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: US FinCEN MSB Registration -->
+      <article class="doc-card" data-category="regulatory" data-tags="MSB 美国财政部 合规牌照 FinCEN 监管登记 法定资质">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-pdf">官方合规 · MSB</span>
+          <span class="doc-meta-date">FinCEN 备案</span>
+        </div>
+        <h3 class="doc-card-title">美国财政部 FinCEN MSB 监管登记备案证书与合规档案</h3>
+        <p class="doc-card-desc">
+          美国财政部金融犯罪执法网络合法登记之货币服务商资质凭证，涵盖外汇兑换、资产转移及合规治理体系。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">MSB 牌照</span>
+          <span class="doc-tag">合规存证</span>
+          <span class="doc-tag">反洗钱审计</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-preview-doc" data-doc="doc-msb">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            查验公证
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/docs/企业宣传资料.docx" download="SPARK MSB 合规档案说明.docx">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载档案
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3: Colorado Corporate Filing Certificate -->
+      <article class="doc-card" data-category="regulatory" data-tags="科罗拉多州 公司注册 营业执照 存续证明 Corporate Filing">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-doc">州务卿认证 · 法定</span>
+          <span class="doc-meta-date">实体注册</span>
+        </div>
+        <h3 class="doc-card-title">美国科罗拉多州政府公司登记注册证书存证</h3>
+        <p class="doc-card-desc">
+          科罗拉多州政府州务卿办公室出具之正规企业设立与存续良好公证书，确权实体法定治理与合规运营基础。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">法人证明</span>
+          <span class="doc-tag">C-Corp</span>
+          <span class="doc-tag">丹佛总部</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-preview-doc" data-doc="doc-corporate">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            在线查验
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/docs/企业宣传资料.docx" download="SPARK 公司注册存证.docx">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载证明
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4: AI Gold Quant Research -->
+      <article class="doc-card" data-category="quant" data-tags="黄金 量化交易 AI模型 跨周期对冲 避险资产 投研研报">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-doc" style="color:#fbbf24; border-color:rgba(251,191,36,0.3); background:rgba(251,191,36,0.12);">深度投研 · 黄金</span>
+          <span class="doc-meta-date">量化白皮书</span>
+        </div>
+        <h3 class="doc-card-title">AI 黄金量化交易专题研报：如何重塑未来金融市场格局</h3>
+        <p class="doc-card-desc">
+          深入剖析全球央行购金浪潮、地缘博弈新常态与 AI 动量算法在现货黄金中的实盘多因子回测与风控表现。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">COMEX 黄金</span>
+          <span class="doc-tag">Transformer</span>
+          <span class="doc-tag">低回撤策略</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-preview-doc" data-doc="doc-gold-quant">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            研报导读
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/docs/星火联合资本：AI黄金量化交易如何重塑未来金融市场格局.docx" download="AI黄金量化交易专题研报.docx">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载研报
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5: AI Platform Architecture Whitepaper -->
+      <article class="doc-card" data-category="quant" data-tags="架构白皮书 TITAN ORION 智能风控 技术方案 多策略">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-doc">技术白皮书 · AI</span>
+          <span class="doc-meta-date">技术架构</span>
+        </div>
+        <h3 class="doc-card-title">AI 驱动下的新一代全球资本管理平台：技术架构白皮书</h3>
+        <p class="doc-card-desc">
+          解构 SPARK TITAN 趋势预测网络与 ORION 多维动态风控矩阵，实现跨市场、毫秒级流动性自适应套利。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">TITAN 引擎</span>
+          <span class="doc-tag">ORION 风控</span>
+          <span class="doc-tag">链上结算</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-preview-doc" data-doc="doc-whitepaper">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            架构概览
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/docs/星火联合资本：AI驱动下的新一代全球资本管理平台.docx" download="SPARK AI 架构白皮书.docx">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载白皮书
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 6: Multilingual Membership Growth Plan -->
+      <article class="doc-card" data-category="growth" data-tags="会员体系 S1 S9 成长计划 直推团队 贡献激励 三语版">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-photo">三语图表 · 高清</span>
+          <span class="doc-meta-date">中 / 英 / 韩</span>
+        </div>
+        <h3 class="doc-card-title">S1-S9 全球会员成长与生态贡献激励指南 (多语言版)</h3>
+        <p class="doc-card-desc">
+          包含有效会员准入门槛（余额/交易量/活跃天数）以及 S1 普通会员至 S9 荣耀领袖晋级考核标准与奖励梯度。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">S1-S9 阶梯</span>
+          <span class="doc-tag">分红激励</span>
+          <span class="doc-tag">全球化社区</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-growth-lightbox">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            高清大图浏览
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/growth/GrowthPlan-ZH.jpg" download="S1-S9 会员成长体系图.jpg">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载原图
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 7: Digital Asset Ecosystem Vision -->
+      <article class="doc-card" data-category="deck" data-tags="数字金融 智能投资 全球配置 资产数字化 Web3">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-doc">生态愿景 · 专刊</span>
+          <span class="doc-meta-date">投资生态</span>
+        </div>
+        <h3 class="doc-card-title">从传统金融到数字金融：打造全球智能投资新生态</h3>
+        <p class="doc-card-desc">
+          探讨资产数字化时代碎片化所有权、跨链清算网络与全球去中心化多资产配置的最佳结合路径。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">资产代币化</span>
+          <span class="doc-tag">全球流动性</span>
+          <span class="doc-tag">多资产配置</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-preview-doc" data-doc="doc-pitch-deck">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            在线阅读
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/docs/从传统金融到数字金融：星火联合资本打造全球智能投资新生态.docx" download="从传统金融到数字金融白皮书.docx">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载文档
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 8: Charity TV Broadcast Video -->
+      <article class="doc-card" data-category="media" data-tags="公益 尼日利亚 电视台报道 真实视频 现场实录 社区责任">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill doc-badge-video">电视台专访 · 视频</span>
+          <span class="doc-meta-date">真实视频 27MB</span>
+        </div>
+        <h3 class="doc-card-title">全球公益足迹：尼日利亚首都国家电视台官方专题报道实录</h3>
+        <p class="doc-card-desc">
+          尼日利亚拉各斯首都电视台现场摄制，真实记录 SPARK 全球志愿者走进公立学校捐资助学、关爱儿童教育的温暖足迹。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">真实新闻实录</span>
+          <span class="doc-tag">国家电视台</span>
+          <span class="doc-tag">ESG 责任</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-play-video" style="background:rgba(168,85,247,0.15); border-color:#a855f7; color:#d8b4fe;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            站内播放视频
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/videos/charity-event-tv.mp4" download="尼日利亚首都电视台公益报道.mp4">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载视频
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 9: AI Quant Global Blueprint Infographic Poster -->
+      <article class="doc-card" data-category="poster" data-tags="海报 蓝图 架构 AI量化 全球财富 4K 高清图 视觉">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill" style="background:rgba(0,255,135,0.1); border:1px solid rgba(0,255,135,0.3); color:var(--portal-emerald);">官方蓝图 · 海报</span>
+          <span class="doc-meta-date">高清 4K 原图</span>
+        </div>
+        <h3 class="doc-card-title">SPARK ONE：AI 量化全球财富蓝图架构长图</h3>
+        <p class="doc-card-desc">
+          全景解析 SPARK ONE 从底层分布式协议、AI 决策模型、多资产配置矩阵到全球分润的完整技术与商业架构海报。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">全景蓝图</span>
+          <span class="doc-tag">AI 量化矩阵</span>
+          <span class="doc-tag">信息图海报</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-poster-modal" data-poster="assets/posters/spark-ai-blueprint.jpg" data-title="SPARK ONE：AI量化全球财富蓝图">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            原图预览
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/posters/spark-ai-blueprint.jpg" download="SPARK ONE 全球财富蓝图.jpg">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载海报
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 10: Newbie Quick-Start 1-Page Infographic Poster -->
+      <article class="doc-card" data-category="poster" data-tags="新人 手册 一页看懂 入门 指南 海报 长图">
+        <div class="doc-card-top">
+          <span class="doc-badge-pill" style="background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.3); color:#fbbf24;">入门指南 · 视觉长图</span>
+          <span class="doc-meta-date">新手必读</span>
+        </div>
+        <h3 class="doc-card-title">SPARK ONE：新人一页快速看懂核心价值手册</h3>
+        <p class="doc-card-desc">
+          专为新会员定制的可视化信息图，无需繁杂文字，以图表和时间线清晰呈现平台运作模式与收益激励结构。
+        </p>
+        <div class="doc-card-tags">
+          <span class="doc-tag">一页搞定</span>
+          <span class="doc-tag">新手入门</span>
+          <span class="doc-tag">视觉长图</span>
+        </div>
+        <div class="doc-card-actions">
+          <button class="doc-action-btn btn-preview trigger-poster-modal" data-poster="assets/posters/spark-quickstart-guide.jpg" data-title="SPARK ONE：新人一页看懂">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            原图预览
+          </button>
+          <a class="doc-action-btn btn-download" href="assets/posters/spark-quickstart-guide.jpg" download="SPARK ONE 新人一页看懂长图.jpg">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            下载长图
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Empty Search Notice -->
+    <div id="library-empty-notice" style="display:none; text-align:center; padding:50px 20px; color:var(--portal-muted);">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:12px; opacity:0.6;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <div style="font-size:1.1rem; color:#fff; font-weight:700; margin-bottom:6px;">未匹配到相关资料或研报</div>
+      <p style="font-size:0.85rem; max-width:400px; margin:0 auto;">请尝试更换搜索关键字（如 "黄金"、"MSB"、"PPT"、"白皮书"）或切换分类标签。</p>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. SCALE & TRACK RECORD (Aligned with sparkai.cc)
+       ========================================================================= -->
+  <section class="portal-section" id="scale" style="padding-top:20px;">
+    <div class="section-head">
+      <span class="hud-tag">SCALE &amp; TRACK RECORD</span>
+      <h2>实力数据 · 我们的规模</h2>
+      <p>技术驱动的全球管理体量，持续见证长期稳健的价值创造</p>
+    </div>
+
+    <div class="scale-metrics-grid">
+      <div class="scale-card">
+        <div class="scale-big-num" data-counter-target="480" data-counter-suffix="M+">480<span>M+</span></div>
+        <div class="scale-label">USD / 管理资产 (AUM)</div>
+      </div>
+
+      <div class="scale-card">
+        <div class="scale-big-num" data-counter-target="12" data-counter-suffix="B+">12<span>B+</span></div>
+        <div class="scale-label">USD / 年交易量 (Annual Volume)</div>
+      </div>
+
+      <div class="scale-card">
+        <div class="scale-big-num" data-counter-target="50" data-counter-suffix="+">50<span>+</span></div>
+        <div class="scale-label">覆盖关键市场及策略指标</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. THREE-DIMENSIONAL DISCOVERY (Aligned with sparkai.cc)
+       ========================================================================= -->
+  <section class="portal-section" id="discovery">
+    <div class="section-head">
+      <span class="hud-tag">ASSETS · SPATIAL · CONNECTION</span>
+      <h2>探索 SPARK 的更多可能</h2>
+      <p>换一个角度，理解资产。连接传统资产与区块链驱动的金融基础设施。</p>
+    </div>
+
+    <div class="terminal-category-tabs" style="margin-bottom:20px;">
+      <button class="cat-tab model-tab-btn active" data-model="01">
+        <strong>01 资产数字化</strong>
+        <small>Digital Assets</small>
+      </button>
+
+      <button class="cat-tab model-tab-btn" data-model="02">
+        <strong>02 智能量化核心</strong>
+        <small>Intelligent Core</small>
+      </button>
+
+      <button class="cat-tab model-tab-btn" data-model="03">
+        <strong>03 实物价值映射</strong>
+        <small>Physical Mapping</small>
+      </button>
+    </div>
+
+    <div class="scale-card" style="padding:32px 30px; text-align:center;">
+      <div style="margin-bottom:14px;">
+        <span class="hud-tag" id="sp-model-concept">资产确权与链上登记 · 可编程资产结构设计</span>
+      </div>
+      <h3 id="sp-model-title" style="font-size:1.85rem; margin-bottom:10px; color:#fff;">资产数字化 (Digital Assets)</h3>
+      <p id="sp-model-desc" style="font-size:1rem; color:var(--portal-muted); max-width:720px; margin:0 auto 20px;">
+        将传统资产转化为可编程的数字代币，实现碎片化所有权、增强流动性与全球可及性。
+      </p>
+
+      <div class="chain-flow-steps">
+        <div class="chain-step"><span>01 链上确权</span></div>
+        <div class="chain-arrow">&rarr;</div>
+        <div class="chain-step"><span>02 智能合约</span></div>
+        <div class="chain-arrow">&rarr;</div>
+        <div class="chain-step"><span>03 碎片化流动</span></div>
+        <div class="chain-arrow">&rarr;</div>
+        <div class="chain-step" style="border-color:var(--portal-cyan); color:var(--portal-cyan);"><span>04 全球可及</span></div>
+      </div>
+    </div>
+
+    <!-- Visual Concept Poster Gallery Grid (Visual explosion replacing heavy text) -->
+    <div class="discovery-posters-grid">
+      <div class="discovery-visual-card trigger-poster-modal" data-poster="assets/posters/feature-card-1.jpg" data-title="SPARK 资产数字化赋能体系">
+        <img src="assets/posters/feature-card-1.jpg" alt="资产数字化" class="disc-card-img">
+        <div class="disc-card-overlay">
+          <span class="hud-tag" style="font-size:0.65rem;">MODULE 01</span>
+          <h4>智能资产协议</h4>
+          <p>打破地域壁垒与门槛限制</p>
+        </div>
+      </div>
+
+      <div class="discovery-visual-card trigger-poster-modal" data-poster="assets/posters/feature-card-2.jpg" data-title="SPARK AI 量化自适应决策引擎">
+        <img src="assets/posters/feature-card-2.jpg" alt="智能量化核心" class="disc-card-img">
+        <div class="disc-card-overlay">
+          <span class="hud-tag" style="font-size:0.65rem; border-color:var(--portal-cyan); color:var(--portal-cyan);">MODULE 02</span>
+          <h4>AI 策略引擎</h4>
+          <p>全天候动态风控与套利对冲</p>
+        </div>
+      </div>
+
+      <div class="discovery-visual-card trigger-poster-modal" data-poster="assets/posters/feature-card-3.jpg" data-title="实物黄金与多资产储备映射">
+        <img src="assets/posters/feature-card-3.jpg" alt="实物价值映射" class="disc-card-img">
+        <div class="disc-card-overlay">
+          <span class="hud-tag" style="font-size:0.65rem; border-color:var(--portal-emerald); color:var(--portal-emerald);">MODULE 03</span>
+          <h4>物理黄金映射</h4>
+          <p>瑞士保税仓 1:1 实物金存证储备</p>
+        </div>
+      </div>
+
+      <div class="discovery-visual-card trigger-poster-modal" data-poster="assets/posters/feature-card-4.jpg" data-title="SPARK 全球金融连接网络">
+        <img src="assets/posters/feature-card-4.jpg" alt="全球连接" class="disc-card-img">
+        <div class="disc-card-overlay">
+          <span class="hud-tag" style="font-size:0.65rem; border-color:#fbbf24; color:#fbbf24;">MODULE 04</span>
+          <h4>全球生态连结</h4>
+          <p>连通个人、机构与未来价值</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. OFFICIAL PRESENTATION DECK (23P EMBEDDED SHOWCASE)
+       ========================================================================= -->
+  <section class="portal-section" id="deck-section" style="padding-top:20px;">
+    <div class="section-head">
+      <span class="hud-tag" style="color:var(--portal-cyan); border-color:var(--portal-cyan);">PRESENTATION PITCH DECK</span>
+      <h2>SPARK ONE 官方商业演示文稿 (23页)</h2>
+      <p>完整呈现 Spark One 的产品定位、五大痛点破解、美韩案例、量化引擎架构与 S1-S9 会员激励机制。</p>
+      <div style="margin-top:20px;">
+        <button class="portal-btn-primary trigger-open-deck">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          开启全屏幻灯片放映 (支持键盘上下左右翻页)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. IMPACT JOURNAL (公益故事与现场照片)
+       ========================================================================= -->
+  <section class="portal-section" id="impact" style="padding-top:10px;">
+    <div class="section-head">
+      <span class="hud-tag">SPARK IMPACT JOURNAL</span>
+      <h2>让连接，也成为关怀</h2>
+      <p>走进不同社区的公益现场，阅读照片背后的行动与故事。</p>
+    </div>
+
+    <div class="impact-journal-grid">
+      <!-- Feature Card (Using local Nigeria Charity photo) -->
+      <div class="impact-feature-card trigger-play-video" style="cursor:pointer;" title="点击观看首都电视台新闻报道">
+        <img class="impact-feature-img" src="assets/gallery/nigeria-01.jpg" alt="尼日利亚学校公益现场">
+        <div class="impact-feature-body">
+          <span class="hud-tag" style="margin-bottom:8px;">教育支持 · 尼日利亚拉各斯</span>
+          <h3 style="font-size:1.45rem; margin-bottom:8px; color:#fff;">让希望走进校园：尼日利亚教育支持与助学活动</h3>
+          <p style="font-size:0.9rem; color:var(--portal-muted); line-height:1.5;">
+            走进尼日利亚当地公立学校，捐赠教学课桌与文具书本，首都电视台官方跟踪报道，用科技带来的财富红利点亮未来下一代知识的火种。
+          </p>
+          <div style="margin-top:12px; display:inline-flex; align-items:center; gap:6px; color:var(--portal-cyan); font-weight:700; font-size:0.85rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            播放电视台新闻实录 (27MB) &rarr;
+          </div>
+        </div>
+      </div>
+
+      <!-- Side List -->
+      <div class="impact-list">
+        <div class="impact-list-item trigger-play-video" style="cursor:pointer;">
+          <img class="impact-thumb" src="assets/gallery/nigeria-02.jpg" alt="物资采购与整理">
+          <div>
+            <span style="font-size:0.75rem; color:var(--portal-cyan);">助学行动 · 尼日利亚</span>
+            <h4 style="font-size:0.95rem; color:#fff; margin-top:2px;">物资筹备与整理：书籍与课桌椅发放</h4>
+          </div>
+        </div>
+
+        <div class="impact-list-item trigger-play-video" style="cursor:pointer;">
+          <img class="impact-thumb" src="assets/gallery/nigeria-03.jpg" alt="儿童关怀">
+          <div>
+            <span style="font-size:0.75rem; color:var(--portal-cyan);">温暖陪伴 · 现场合影</span>
+            <h4 style="font-size:0.95rem; color:#fff; margin-top:2px;">孩子们的灿烂笑容：点亮非洲下一代梦想</h4>
+          </div>
+        </div>
+
+        <div class="impact-list-item trigger-growth-lightbox" style="cursor:pointer;">
+          <div style="width:60px; height:60px; border-radius:10px; background:rgba(0,240,255,0.1); display:flex; align-items:center; justify-content:center; color:var(--portal-cyan); font-weight:800;">
+            S1-S9
+          </div>
+          <div>
+            <span style="font-size:0.75rem; color:var(--portal-cyan);">全球生态倡议</span>
+            <h4 style="font-size:0.95rem; color:#fff; margin-top:2px;">商业向善：社区成长激励回馈社会</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4-Nation Official Charity Poster Exhibition (High visual poster impact) -->
+    <div class="charity-posters-showcase">
+      <div class="charity-posters-head">
+        <div>
+          <h3 style="font-size:1.4rem; color:#fff; margin-bottom:4px;">全球 4 国社区关怀行动 · 官方实况海报展</h3>
+          <p style="font-size:0.85rem; color:var(--portal-muted); margin:0;">点击任意海报即可开启 4K 原图灯箱查看细节或下载</p>
+        </div>
+        <span class="hud-tag" style="border-color:var(--portal-emerald); color:var(--portal-emerald);">4 国官方公益认证</span>
+      </div>
+
+      <div class="charity-posters-grid">
+        <div class="charity-poster-card trigger-poster-modal" data-poster="assets/posters/charity-nigeria.jpg" data-title="尼日利亚学校公益助学行动官方海报">
+          <img src="assets/posters/charity-nigeria.jpg" alt="尼日利亚学校公益海报" class="charity-poster-thumb">
+          <div class="charity-poster-meta">
+            <strong>🇳🇬 尼日利亚 · 拉各斯学校</strong>
+            <span>教学物资捐助与课桌助学</span>
+          </div>
+        </div>
+
+        <div class="charity-poster-card trigger-poster-modal" data-poster="assets/posters/charity-thailand.jpg" data-title="泰国曼谷社区公益关怀行动官方海报">
+          <img src="assets/posters/charity-thailand.jpg" alt="泰国社区公益海报" class="charity-poster-thumb">
+          <div class="charity-poster-meta">
+            <strong>🇹🇭 泰国 · 曼谷社区</strong>
+            <span>困境儿童陪伴与生活物资扶持</span>
+          </div>
+        </div>
+
+        <div class="charity-poster-card trigger-poster-modal" data-poster="assets/posters/charity-vietnam.jpg" data-title="越南胡志明社区关怀行动官方海报">
+          <img src="assets/posters/charity-vietnam.jpg" alt="越南社区公益海报" class="charity-poster-thumb">
+          <div class="charity-poster-meta">
+            <strong>🇻🇳 越南 · 胡志明社区</strong>
+            <span>基层家庭温暖计划与物资赠送</span>
+          </div>
+        </div>
+
+        <div class="charity-poster-card trigger-poster-modal" data-poster="assets/posters/charity-malaysia.jpg" data-title="马来西亚吉隆坡社区关怀行动官方海报">
+          <img src="assets/posters/charity-malaysia.jpg" alt="马来西亚社区公益海报" class="charity-poster-thumb">
+          <div class="charity-poster-meta">
+            <strong>🇲🇾 马来西亚 · 吉隆坡社区</strong>
+            <span>多元文化社区关怀与青少年赋能</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. PORTAL DAPP CALL TO ACTION
+       ========================================================================= -->
+  <section class="portal-section" id="dapp-cta" style="padding-top:20px;">
+    <div class="portal-cta-banner">
+      <div style="display:inline-block; margin-bottom:14px;">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none">
+          <polygon points="12 2 22 12 12 22 2 12" fill="#00f0ff"/>
+          <polygon points="12 6 18 12 12 18 6 12" fill="#3b82f6"/>
+        </svg>
+      </div>
+      <h2 style="font-size:2.8rem; font-weight:800; margin-bottom:12px; color:#fff;">打开 SPARK ONE</h2>
+      <p style="font-size:1.15rem; color:var(--portal-muted); max-width:640px; margin:0 auto 30px;">
+        通过电子邮箱或 Web3 去中心化钱包，随时随地开启属于你的下一代智能财富管理之旅。
+      </p>
+      <a class="portal-btn-primary" href="https://dapp.sparkunioncapital.com/" target="_blank" rel="noopener noreferrer">
+        <span>进入 DApp 体验</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. SITE FOOTER
+       ========================================================================= -->
+  <footer class="portal-footer" id="company">
+    <div class="footer-inner">
+      <div style="max-width:380px;">
+        <div style="margin-bottom:16px;">
+          <img src="assets/spark_brand_full.png" alt="SPARK UNION CAPITAL" style="height:36px; width:auto; display:block; filter:brightness(1.05);">
+        </div>
+        <p style="line-height:1.65; margin-bottom:16px;">
+          全球资产管理与金融科技 —— 以智能连接资本与机遇。成立于2020年，总部位于美国科罗拉多州，聚焦多资产配置、AI量化投资与数字金融生态创新。
+        </p>
+        <div style="font-size:0.82rem; color:var(--portal-dim);">
+          contact@sparkunioncapital.com · FinCEN MSB Registered
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>产品与工作台</h4>
+        <ul class="footer-links">
+          <li><a href="#terminal">量化工作台</a></li>
+          <li><a href="#discovery">数字资产</a></li>
+          <li><a href="#deck-section">AI 量化引擎</a></li>
+          <li><a href="https://dapp.sparkunioncapital.com/" target="_blank">DApp 终端</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>资料与研报</h4>
+        <ul class="footer-links">
+          <li><a href="#library-section">资料中心</a></li>
+          <li><a href="#library-section">MSB 合规存证</a></li>
+          <li><a href="#library-section">黄金量化研报</a></li>
+          <li><a href="#deck-section">会员成长体系</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>合规与责任</h4>
+        <ul class="footer-links">
+          <li><a href="#scale">公司实力规模</a></li>
+          <li><a href="#impact">全球公益足迹</a></li>
+          <li><a href="#">隐私合规政策</a></li>
+          <li><a href="#">公开信息披露</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="max-width:1280px; margin:0 auto; padding-top:20px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; flex-wrap:wrap; font-size:0.8rem; color:var(--portal-dim);">
+      <span>&copy; 2026 SPARK UNION CAPITAL INC. 版权所有。</span>
+      <span>公开参考市场行情，不代表直接投资建议。</span>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       FULLSCREEN 23-PAGE PRESENTATION DECK MODAL (Triggered seamlessly)
+       ========================================================================= -->
+  <div id="presentation-modal-container" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background:#040712; z-index:2000; opacity:0; pointer-events:none; transition:opacity 0.4s ease;">
+    <!-- Top Floating Presentation Bar inside Modal -->
+    <header class="top-nav-bar" id="top-nav" style="z-index:2100;">
+      <div class="nav-brand">
+        <svg class="spark-diamond-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polygon points="12 2 22 12 12 22 2 12" fill="url(#modal-brand-grad)" stroke="#00f0ff" stroke-width="1.5"/>
+          <defs>
+            <linearGradient id="modal-brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#00f0ff" />
+            </linearGradient>
+          </defs>
+        </svg>
+        SPARK<span>ONE</span>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:6px; font-size:0.72rem; font-family:var(--font-mono); color:#00ff87; padding:0 4px;">
+        <span class="pulse-dot"></span>
+        <span>SYS_ACTIVE</span>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <div class="nav-page-counter" id="nav-page-counter">01 / 23</div>
+
+      <div class="nav-divider"></div>
+
+      <button class="nav-btn active" id="mode-toggle-btn" title="切换浏览模式 (按 M)">
+        <span>幻灯片模式</span>
+      </button>
+
+      <button class="nav-btn" id="drawer-toggle-btn" title="查看全部章节 (按 O)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span>目录大纲</span>
+      </button>
+
+      <div class="nav-divider"></div>
+
+      <button class="nav-icon-btn" id="fullscreen-btn" title="全屏演示 (按 F)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+      </button>
+
+      <!-- Close Deck Modal Button -->
+      <button class="nav-icon-btn" id="close-deck-modal-btn" title="返回官网主页 (ESC)" style="background:rgba(255,0,127,0.2); border-color:#ff007f; color:#fff;">
+        &times;
+      </button>
+    </header>
+
+    <!-- Bottom Floating Arrows -->
+    <div class="slide-arrows" style="z-index:2100;">
+      <button class="arrow-btn" id="arrow-prev" title="上一页 (← / ↑)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="arrow-btn" id="arrow-next" title="下一页 (→ / ↓ / 空格)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Progress Bar at bottom -->
+    <div class="presentation-progress-bar" style="z-index:2100;">
+      <div class="presentation-progress-fill" id="presentation-progress-fill"></div>
+    </div>
+
+    <!-- Drawer Navigation Panel -->
+    <div class="drawer-backdrop" id="drawer-backdrop">
+      <div class="drawer-panel">
+        <div class="drawer-header">
+          <span class="drawer-title">演讲幻灯片大纲 (23页)</span>
+          <button class="drawer-close-btn" id="drawer-close-btn">&times;</button>
+        </div>
+        <div class="drawer-body" id="drawer-list"></div>
+      </div>
+    </div>
+
+    <!-- Shortcuts Modal -->
+    <div class="help-modal" id="help-modal">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h3 style="font-size:1.15rem;">演讲控制快捷键</h3>
+        <button class="drawer-close-btn" id="help-close-btn">&times;</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; font-size:0.9rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span>下一页</span>
+          <div><span class="key-badge">→</span> <span class="key-badge">↓</span> <span class="key-badge">Space</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span>上一页</span>
+          <div><span class="key-badge">←</span> <span class="key-badge">↑</span> <span class="key-badge">PageUp</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span>返回官网首页</span>
+          <span class="key-badge">ESC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 23 SECTIONS CONTAINER -->
+    <main id="presentation-container">
+      <!-- Slide 1 -->
+      <section class="slide-section active" id="slide-1" data-title="SPARK ONE 封面">
+        <div class="slide-inner hero-cover">
+          <div style="font-size: 0.8rem; letter-spacing: 0.25em; color: var(--accent-cyan); margin-bottom: 1.5rem; text-transform: uppercase;">
+            <span class="hud-tag">PEOPLE · TECHNOLOGY · CAPITAL · A BRIGHTER TOMORROW</span>
+          </div>
+          <div class="spark-brand-logo" style="justify-content: center; margin-bottom: 1rem;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none">
+              <polygon points="12 2 22 12 12 22 2 12" fill="#00f0ff"/>
+              <polygon points="12 6 18 12 12 18 6 12" fill="#3b82f6"/>
+            </svg>
+            <span style="font-size: 2.4rem; font-weight: 900; letter-spacing: 0.05em; color: #fff;">Spark</span>
+            <span style="font-size: 0.75rem; color: #94a3b8; align-self: flex-end; margin-bottom: 6px; letter-spacing: 0.1em; font-family:var(--font-mono);">UNION CAPITAL INC</span>
+          </div>
+          <h1 class="hero-title text-gradient">SPARK ONE</h1>
+          <h2 class="hero-subtitle text-gradient-cyan">全球智能财富管理平台</h2>
+          <div class="hero-pills">
+            <div class="glass-pill">AI 人工智能</div>
+            <div class="glass-pill">Quant 量化引擎</div>
+            <div class="glass-pill">Global Markets 全球市场</div>
+            <div class="glass-pill">Community 生态网络</div>
+            <div class="glass-pill">Impact 长期向善</div>
+          </div>
+          <p class="hero-slogan-en">Building the Future of Intelligent Wealth</p>
+          <p class="hero-slogan-cn">构建下一代智能财富生态</p>
+        </div>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide-section" id="slide-2" data-title="财富管理正在进入智能时代">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">FROM EXPERIENCE TO INTELLIGENCE</span>
+            <h2 class="section-title text-gradient">财富管理正在进入智能时代</h2>
+            <p class="section-subtitle">从人工经验到自动化计算，投资决策正经历根本性的范式转移</p>
+          </div>
+          <div class="evolution-cards-grid">
+            <div class="glass-card evo-card">
+              <div class="evo-badge">01</div>
+              <h3 class="evo-title">经验驱动</h3>
+              <ul class="evo-list">
+                <li>经验判断</li><li>人工分析</li><li>单点决策</li>
+              </ul>
+            </div>
+            <div class="glass-card evo-card">
+              <div class="evo-badge">02</div>
+              <h3 class="evo-title">数字驱动</h3>
+              <ul class="evo-list">
+                <li>在线交易</li><li>全球市场</li><li>数据连接</li>
+              </ul>
+            </div>
+            <div class="glass-card evo-card highlight">
+              <div class="evo-badge" style="color:var(--accent-cyan);">03</div>
+              <h3 class="evo-title text-gradient-cyan">智能驱动</h3>
+              <ul class="evo-list">
+                <li>Data 多维数据</li><li>AI 深度学习</li><li>Quant 策略执行</li><li>Risk Management 风控</li>
+              </ul>
+            </div>
+          </div>
+          <div class="quote-banner">
+            <span>今天真正的变化，不只是交易变快，而是<strong>财富管理的决策方式正在改变</strong>。</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide-section" id="slide-3" data-title="普通投资者真正面对的五大痛点">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">THE INVESTOR'S NEW REALITY</span>
+            <h2 class="section-title text-gradient">普通投资者真正面对的五大痛点</h2>
+            <p class="section-subtitle">在全球复杂的市场中，投资变得前所未有的困难</p>
+          </div>
+          <div class="pain-points-grid">
+            <div class="glass-card pain-card">
+              <div class="pain-num">01</div>
+              <h3 class="pain-title">信息过载</h3>
+              <p class="pain-desc">全球信息太多，个人难以同步处理海量宏观与微观数据</p>
+            </div>
+            <div class="glass-card pain-card">
+              <div class="pain-num">02</div>
+              <h3 class="pain-title">情绪决策</h3>
+              <p class="pain-desc">恐惧、贪婪、FOMO情绪主导判断，追涨杀跌难以克服人性弱点</p>
+            </div>
+            <div class="glass-card pain-card">
+              <div class="pain-num">03</div>
+              <h3 class="pain-title">时间限制</h3>
+              <p class="pain-desc">全球市场跨时区 24 小时运行，个人精力有限无法持续盯盘</p>
+            </div>
+            <div class="glass-card pain-card">
+              <div class="pain-num">04</div>
+              <h3 class="pain-title">专业门槛</h3>
+              <p class="pain-desc">研究分析、模型推演、仓位规划、风控体系要求越来越高</p>
+            </div>
+            <div class="glass-card pain-card">
+              <div class="pain-num">05</div>
+              <h3 class="pain-title">风险管理不足</h3>
+              <p class="pain-desc">擅长找盈利机会，却缺乏完整科学的止损与动态回撤控制体系</p>
+            </div>
+          </div>
+          <div class="quote-banner">
+            <span>“<strong>信息不是稀缺品，处理信息的能力才是。</strong>”</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4 -->
+      <section class="slide-section" id="slide-4" data-title="美国：AI 正在重新定义科技股行情">
+        <div class="slide-inner case-study-layout">
+          <div class="section-header" style="margin-bottom:1rem;">
+            <span class="hud-tag">CASE STUDY · UNITED STATES</span>
+            <h2 class="section-title text-gradient">美国：AI 正在重新定义科技股行情</h2>
+            <p class="section-subtitle">全球资本正围绕 AI、芯片、数据中心与算力进行重构与再配置</p>
+          </div>
+          <div class="glass-card chart-banner">
+            <div>
+              <h3 style="font-size:1.45rem;">Nasdaq &times; AI &times; Semiconductor</h3>
+              <p style="color:var(--text-muted); font-size:0.9rem;">Nasdaq 处于高位震荡，AI 与半导体供应链仍是核心驱动力之一</p>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-family:var(--font-mono); font-size:2.4rem; font-weight:900; color:var(--accent-emerald);"
+                   data-counter-target="148.6" data-counter-prefix="+" data-counter-suffix="%" data-counter-decimals="1">+148.6%</div>
+              <div style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">YTD PERFORMANCE</div>
+            </div>
+          </div>
+          <div class="chain-flow-steps">
+            <div class="chain-step"><span>AI 大模型</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step"><span>Chips 芯片</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step"><span>Data Centers 数据中心</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step"><span>Earnings 盈利</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step"><span>Capital Flow 资金流向</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step" style="border-color:var(--accent-cyan); color:var(--accent-cyan);"><span>Valuation 估值提升</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5 -->
+      <section class="slide-section" id="slide-5" data-title="韩国：AI 芯片如何推动整个国家股市">
+        <div class="slide-inner case-study-layout">
+          <div class="section-header" style="margin-bottom:1rem;">
+            <span class="hud-tag">CASE STUDY · SOUTH KOREA</span>
+            <h2 class="section-title text-gradient">韩国：AI 芯片如何推动整个国家股市</h2>
+            <p class="section-subtitle">AI memory chips are reshaping Korea's market. 真实产业向资本市场的高能传导</p>
+          </div>
+          <div class="chain-flow-steps" style="margin-bottom:16px;">
+            <div class="chain-step"><span>AI Demand</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step"><span>Data Centers</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step"><span>HBM / DRAM</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step" style="background:rgba(30,58,138,0.5); color:#fff;"><span>Samsung / SK Hynix</span></div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-step" style="border-color:var(--accent-emerald); color:var(--accent-emerald);">
+              <span data-counter-target="28.4" data-counter-prefix="KOSPI +" data-counter-suffix="%" data-counter-decimals="1">KOSPI +28.4%</span>
+            </div>
+          </div>
+          <div class="quote-banner">
+            <span>“ A SMARTER KOREA · A STRONGER TOMORROW ”</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6 -->
+      <section class="slide-section" id="slide-6" data-title="趋势永远有另一面">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">OPPORTUNITY &amp; VOLATILITY</span>
+            <h2 class="section-title text-gradient">但趋势永远有另一面</h2>
+            <p class="section-subtitle">TWO SIDES OF A BRIGHTER TOMORROW · 机会与风险的永恒博弈</p>
+          </div>
+          <div class="dual-force-grid">
+            <div class="glass-card dual-card opportunity">
+              <h3 style="color:var(--accent-cyan); font-size:1.6rem; margin-bottom:10px;">OPPORTUNITY</h3>
+              <p>AI 带来长期趋势、产业升级、资本流入、估值提升</p>
+            </div>
+            <div class="core-sphere">AI</div>
+            <div class="glass-card dual-card volatility">
+              <h3 style="color:var(--accent-pink); font-size:1.6rem; margin-bottom:10px;">VOLATILITY</h3>
+              <p>估值 / 利率 / 政策 / 情绪 / 盈利预期 / 国际事件 引发剧烈波动</p>
+            </div>
+          </div>
+          <div class="quote-banner">
+            <span>Finding the trend is important. <strong>Managing the risk is essential.</strong></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7 -->
+      <section class="slide-section" id="slide-7" data-title="什么是 AI 量化？">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">AI + QUANT PROTOCOL</span>
+            <h2 class="section-title text-gradient">什么是 AI 量化？</h2>
+            <p class="section-subtitle">WHAT IS AI QUANTITATIVE? 用 AI 赋能量化，让数据创造更大的价值</p>
+          </div>
+          <div class="six-loop-flow">
+            <div class="loop-item"><h4>Data 数据</h4><p>多维市场数据实时接入</p></div>
+            <div class="loop-item"><h4>AI Analysis</h4><p>大模型规律识别</p></div>
+            <div class="loop-item"><h4>Strategy</h4><p>生成并优化策略</p></div>
+            <div class="loop-item"><h4>Execution</h4><p>自动化毫秒执行</p></div>
+            <div class="loop-item"><h4>Risk Control</h4><p>多维度动态风控</p></div>
+            <div class="loop-item"><h4>Optimization</h4><p>自适应闭环迭代</p></div>
+          </div>
+          <div class="quote-banner">
+            <span>AI量化的价值，<strong>不是保证每一笔交易盈利，而是提升效率、纪律和风险管理能力。</strong></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8 -->
+      <section class="slide-section" id="slide-8" data-title="人类交易 VS AI 智能系统">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">HUMAN VS SYSTEM</span>
+            <h2 class="section-title text-gradient">人类交易 VS AI 智能系统</h2>
+            <p class="section-subtitle">纪律与算力的多维对比</p>
+          </div>
+          <table class="vs-comparison-table">
+            <thead>
+              <tr style="color:var(--text-muted); font-size:0.9rem;">
+                <th>评估维度</th><th>人工交易</th><th>VS</th><th style="color:var(--accent-cyan);">AI 量化</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="vs-row"><td class="vs-dim">信息处理</td><td class="vs-human">有限（脑力带宽限制）</td><td class="vs-center-tag">VS</td><td class="vs-ai">多维海量并发数据</td></tr>
+              <tr class="vs-row"><td class="vs-dim">运行时间</td><td class="vs-human">受精力限制（需休息）</td><td class="vs-center-tag">VS</td><td class="vs-ai">持续监测 7&times;24H</td></tr>
+              <tr class="vs-row"><td class="vs-dim">情绪影响</td><td class="vs-human">易受影响（恐惧、贪婪）</td><td class="vs-center-tag">VS</td><td class="vs-ai">绝对理性规则执行</td></tr>
+              <tr class="vs-row"><td class="vs-dim">风险控制</td><td class="vs-human">主观常拖延止损</td><td class="vs-center-tag">VS</td><td class="vs-ai">系统强制毫秒止损</td></tr>
+            </tbody>
+          </table>
+          <div class="quote-banner">
+            <span>“<strong>机器不是没有风险，机器的优势是不因恐惧和贪婪临时改变纪律。</strong>”</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9 -->
+      <section class="slide-section" id="slide-9" data-title="三代投资模式对标">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">EVOLUTION OF INVESTMENT</span>
+            <h2 class="section-title text-gradient">三代投资模式对标</h2>
+            <p class="section-subtitle">从单打独斗到工具赋能，最终走向智能资产管理体系</p>
+          </div>
+          <div class="three-gen-grid">
+            <div class="glass-card gen-card"><div class="gen-num">01</div><h3>自主交易</h3><p>自己研究、自己判断、自己承担风险</p></div>
+            <div class="glass-card gen-card"><div class="gen-num">02</div><h3>交易平台</h3><p>提供账户通道、提供行情图表，用户自行决策</p></div>
+            <div class="glass-card gen-card active-gen"><div class="gen-num" style="color:var(--accent-cyan);">03</div><h3>智能资产管理</h3><p>AI分析、策略体系、风控闭环、全周期管理</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10 -->
+      <section class="slide-section" id="slide-10" data-title="SPARK UNION CAPITAL INC. 公司背景">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">COMPANY OVERVIEW</span>
+            <h2 class="section-title text-gradient">SPARK UNION CAPITAL INC.</h2>
+            <p class="section-subtitle">以科技驱动财富管理升级，以全球生态连接长期价值</p>
+          </div>
+          <div class="company-grid">
+            <div class="stat-banner-box">
+              <div style="font-size:0.9rem; color:var(--text-muted);">成立于</div>
+              <div class="stat-banner-num" data-counter-target="2020">2020</div>
+              <div style="font-size:1.1rem; color:#fff; font-weight:700; margin-top:6px;">立足美国，面向全球</div>
+            </div>
+            <div class="company-pillars-grid">
+              <div class="glass-card pillar-card"><h4>AI Quant</h4><p>人工智能量化</p></div>
+              <div class="glass-card pillar-card"><h4>Global Markets</h4><p>全球市场直连</p></div>
+              <div class="glass-card pillar-card"><h4>Risk Management</h4><p>多维风险管理</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11 -->
+      <section class="slide-section" id="slide-11" data-title="SPARK AI QUANT ENGINE 技术与风控系统">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">TECHNOLOGY · RISK · INTELLIGENCE</span>
+            <h2 class="section-title text-gradient">SPARK AI QUANT ENGINE 技术与风控系统</h2>
+            <p class="section-subtitle">五大核心神级架构</p>
+          </div>
+          <div class="quant-orbit-container">
+            <div class="glass-card engine-module-card"><h3 style="color:var(--accent-cyan);">TITAN</h3><div>趋势识别</div></div>
+            <div class="glass-card engine-module-card"><h3 style="color:var(--accent-gold);">AURORA</h3><div>黄金研究</div></div>
+            <div class="glass-card engine-module-card central-hub"><h3>SPARK</h3><div>QUANT ENGINE</div></div>
+            <div class="glass-card engine-module-card"><h3 style="color:var(--accent-cyan);">ORION</h3><div>风险控制</div></div>
+            <div class="glass-card engine-module-card"><h3 style="color:var(--accent-purple);">ATLAS</h3><div>全球配置</div></div>
+          </div>
+          <div class="quote-banner">
+            <span><strong>Risk Management First · 风险管理优先</strong></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 12 -->
+      <section class="slide-section" id="slide-12" data-title="什么是 Spark One? ONE ACCOUNT">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">ONE ACCOUNT STRATEGY</span>
+            <h2 class="section-title text-gradient">什么是 Spark One?</h2>
+            <p class="section-subtitle">一个账户，连接整个生态</p>
+          </div>
+          <div class="one-account-orbit">
+            <div class="orbit-center">
+              <h3>ONE ACCOUNT</h3>
+              <div>一个账户 · 一个身份 · 一个生态</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 13 -->
+      <section class="slide-section" id="slide-13" data-title="用户真正获得的是什么？">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">FROM COMPLEXITY TO SIMPLICITY</span>
+            <h2 class="section-title text-gradient">用户真正获得的是什么？</h2>
+            <p class="section-subtitle">把复杂交给系统，把结果与风险呈现给用户</p>
+          </div>
+          <div class="user-value-split">
+            <div class="step-comparison">
+              <div>
+                <h4>过去</h4>
+                <div class="step-item-box">1. 自己找海量信息</div>
+                <div class="step-item-box">2. 自己做主观判断</div>
+                <div class="step-item-box">3. 自己频繁操作交易</div>
+              </div>
+              <div>
+                <h4 style="color:var(--accent-cyan);">Spark One</h4>
+                <div class="step-item-box" style="color:var(--accent-cyan);">1. 了解策略矩阵</div>
+                <div class="step-item-box" style="color:var(--accent-cyan);">2. 系统全天候运行</div>
+                <div class="step-item-box" style="color:var(--accent-cyan);">3. 实时透明风控报告</div>
+              </div>
+            </div>
+            <!-- Phone UI -->
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <div style="font-size:0.9rem; font-weight:800; color:#fff; margin-bottom:10px;">Spark Total Assets</div>
+              <div class="phone-asset-val" style="font-size:1.4rem; font-weight:900; color:#fff;">$ 128,230.45</div>
+              <div class="phone-return-val" style="color:var(--accent-emerald);">+12.36% Selected &gt;</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 14 -->
+      <section class="slide-section" id="slide-14" data-title="从产品，到平台，再到生态">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">PRODUCT &rarr; PLATFORM &rarr; ECOSYSTEM</span>
+            <h2 class="section-title text-gradient">从产品，到平台，再到生态</h2>
+            <p class="section-subtitle">以 AI 驱动的全球金融生态，连接人与更大的可能</p>
+          </div>
+          <div class="six-stages-grid">
+            <div class="glass-card stage-card"><div class="stage-num">01</div><h4>智能资产管理</h4></div>
+            <div class="glass-card stage-card"><div class="stage-num">02</div><h4>Spark One 统一账户</h4></div>
+            <div class="glass-card stage-card"><div class="stage-num">03</div><h4>Spark AI 智能服务</h4></div>
+            <div class="glass-card stage-card"><div class="stage-num">04</div><h4>Spark ID 身份成长</h4></div>
+            <div class="glass-card stage-card"><div class="stage-num">05</div><h4>Spark Community 社区</h4></div>
+            <div class="glass-card stage-card" style="border-color:var(--accent-gold);"><div class="stage-num" style="color:var(--accent-gold);">06</div><h4>权益·黄金·教育</h4></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 15 -->
+      <section class="slide-section" id="slide-15" data-title="Spark Community 全球社区网络">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">THE VALUE OF CONNECTION</span>
+            <h2 class="section-title text-gradient">Spark Community</h2>
+            <p class="section-subtitle">未来重要的财富之一，是连接</p>
+          </div>
+          <div class="community-wheel-grid">
+            <div class="glass-card community-card"><h4>KNOWLEDGE 知识</h4><p>共享前沿量化投研</p></div>
+            <div class="glass-card community-card"><h4>RESOURCES 资源</h4><p>对接全球产业资本</p></div>
+            <div class="glass-card community-card"><h4>OPPORTUNITIES 机会</h4><p>优先参与早期红利</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 16 -->
+      <section class="slide-section" id="slide-16" data-title="SPARK IMPACT 社会责任与公益">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">WEALTH WITH RESPONSIBILITY</span>
+            <h2 class="section-title text-gradient">SPARK IMPACT</h2>
+            <p class="section-subtitle">财富创造价值，责任连接世界</p>
+          </div>
+          <div class="impact-cards-grid">
+            <div class="glass-card impact-pillar-card"><h4>VISION</h4><p>眼健康援助</p></div>
+            <div class="glass-card impact-pillar-card"><h4>HEALTH</h4><p>医疗支持</p></div>
+            <div class="glass-card impact-pillar-card"><h4>FUTURE</h4><p>儿童教育</p></div>
+            <div class="glass-card impact-pillar-card"><h4>CARE</h4><p>弱势关怀</p></div>
+            <div class="glass-card impact-pillar-card"><h4>INCLUSION</h4><p>社会包容</p></div>
+            <div class="glass-card impact-pillar-card"><h4>RELIEF</h4><p>人道援助</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 17 -->
+      <section class="slide-section" id="slide-17" data-title="GLOBAL IMPACT FOOTPRINT 全球公益足迹">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">SPARK 全球公益足迹</span>
+            <h2 class="section-title text-gradient">GLOBAL IMPACT FOOTPRINT</h2>
+            <p class="section-subtitle">From Local Action to Global Impact</p>
+          </div>
+          <div class="footprint-countries-grid">
+            <div class="glass-card country-card"><h4>🇳🇬 NIGERIA</h4><p>学校与教育公益</p></div>
+            <div class="glass-card country-card"><h4>🇲🇾 MALAYSIA</h4><p>弱势家庭与老人援助</p></div>
+            <div class="glass-card country-card"><h4>🇹🇭 THAILAND</h4><p>孤儿院与残障儿童关怀</p></div>
+            <div class="glass-card country-card"><h4>🇻🇳 VIETNAM</h4><p>医院爱心食物捐赠</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 18 -->
+      <section class="slide-section" id="slide-18" data-title="会员成长体系">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">MEMBERSHIP GROWTH SYSTEM</span>
+            <h2 class="section-title text-gradient">会员成长体系</h2>
+            <p class="section-subtitle">从平台用户，到生态建设者</p>
+          </div>
+          <div class="concept-quad-grid">
+            <div class="glass-card quad-card"><h3>DIRECT 直推有效会员</h3><p>建立真实用户连接</p></div>
+            <div class="glass-card quad-card"><h3>TEAM 团队有效会员</h3><p>社区网络深度扩展</p></div>
+            <div class="glass-card quad-card"><h3>TEAM ASSETS 团队资产</h3><p>团队资金整体规模</p></div>
+            <div class="glass-card quad-card"><h3>PERSONAL ASSETS 个人资产</h3><p>个人自身坚定参与</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 19 -->
+      <section class="slide-section" id="slide-19" data-title="会员成长与贡献激励体系 S1-S9">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">MEMBERSHIP &amp; CONTRIBUTION</span>
+            <h2 class="section-title text-gradient">会员成长与贡献激励体系</h2>
+            <p class="section-subtitle">S1 至 S9 阶梯台阶</p>
+          </div>
+          <div class="stairs-container">
+            <div class="stair-step" style="height:25%;"><span>S1 普通</span></div>
+            <div class="stair-step" style="height:35%;"><span>S2 投资人</span></div>
+            <div class="stair-step" style="height:48%;"><span>S3 精英</span></div>
+            <div class="stair-step" style="height:60%;"><span>S4 总监</span></div>
+            <div class="stair-step" style="height:72%;"><span>S5 市场</span></div>
+            <div class="stair-step" style="height:82%;"><span>S6 区域</span></div>
+            <div class="stair-step" style="height:90%;"><span>S7 大使</span></div>
+            <div class="stair-step s9" style="height:100%;"><span>S9 荣耀</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 20 -->
+      <section class="slide-section" id="slide-20" data-title="什么是有效会员？准入标准">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">CRITERIA</span>
+            <h2 class="section-title text-gradient">什么是有效会员？</h2>
+            <p class="section-subtitle">清晰准入门槛</p>
+          </div>
+          <div class="criteria-four-grid">
+            <div class="glass-card crit-card"><div class="crit-val">&ge; 100U</div><div>账户余额</div></div>
+            <div class="glass-card crit-card"><div class="crit-val">&ge; 500U</div><div>累计参与金额</div></div>
+            <div class="glass-card crit-card"><div class="crit-val">15 DAYS</div><div>15天保持活跃</div></div>
+            <div class="glass-card crit-card"><div class="crit-val">DIRECT</div><div>直接推荐会员</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 21 -->
+      <section class="slide-section" id="slide-21" data-title="S1-S5 成长路径">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">LADDER S1-S5</span>
+            <h2 class="section-title text-gradient">S1-S5 成长路径</h2>
+            <p class="section-subtitle">参与形成贡献，贡献推动成长</p>
+          </div>
+          <div class="ladder-cards-grid ladder-grid-5">
+            <div class="glass-card ladder-card"><div class="ladder-title">S1 普通会员</div><div class="ladder-reward">-</div></div>
+            <div class="glass-card ladder-card"><div class="ladder-title">S2 投资人</div><div class="ladder-reward">0.05%</div></div>
+            <div class="glass-card ladder-card"><div class="ladder-title">S3 精英投资人</div><div class="ladder-reward">0.06%</div></div>
+            <div class="glass-card ladder-card"><div class="ladder-title">S4 总监</div><div class="ladder-reward">0.07%</div></div>
+            <div class="glass-card ladder-card"><div class="ladder-title">S5 市场总监</div><div class="ladder-reward">0.08%</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 22 -->
+      <section class="slide-section" id="slide-22" data-title="S6-S9 全球成长路径">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">LADDER S6-S9</span>
+            <h2 class="section-title text-gradient">S6-S9 全球成长路径</h2>
+            <p class="section-subtitle">从团队建设，到全球生态连接</p>
+          </div>
+          <div class="ladder-cards-grid ladder-grid-4">
+            <div class="glass-card ladder-card"><div class="ladder-title">S6 区域总监</div><div class="ladder-reward">0.09%</div></div>
+            <div class="glass-card ladder-card"><div class="ladder-title">S7 全球大使</div><div class="ladder-reward">0.10%</div></div>
+            <div class="glass-card ladder-card"><div class="ladder-title">S8 全球领袖</div><div class="ladder-reward">0.11%</div></div>
+            <div class="glass-card ladder-card crown-gold"><div class="ladder-title">S9 荣耀领袖</div><div class="ladder-reward">0.12%</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 23 -->
+      <section class="slide-section" id="slide-23" data-title="为什么是 Spark One? 终章">
+        <div class="slide-inner">
+          <div class="section-header">
+            <span class="hud-tag">WHY SPARK ONE?</span>
+            <h2 class="section-title text-gradient">为什么是 Spark One?</h2>
+            <p class="section-subtitle">不只是一项产品，而是一套长期价值体系</p>
+          </div>
+          <div class="five-pillars-matrix">
+            <div class="glass-card matrix-card"><h4>TECHNOLOGY</h4><p>技术驱动</p></div>
+            <div class="glass-card matrix-card"><h4>WEALTH</h4><p>资产管理</p></div>
+            <div class="glass-card matrix-card"><h4>GROWTH</h4><p>持续成长</p></div>
+            <div class="glass-card matrix-card"><h4>COMMUNITY</h4><p>全球社区</p></div>
+            <div class="glass-card matrix-card"><h4>IMPACT</h4><p>长期责任</p></div>
+          </div>
+          <div class="one-mantras">
+            <div class="glass-pill">ONE ACCOUNT</div>
+            <div class="glass-pill">ONE IDENTITY</div>
+            <div class="glass-pill">ONE COMMUNITY</div>
+            <div class="glass-pill">ONE ECOSYSTEM</div>
+            <div class="glass-pill" style="border-color:var(--portal-cyan); color:#fff;">ONE FUTURE</div>
+          </div>
+          <div class="quote-banner" style="margin-top:20px;">
+            <span>未来的财富管理，不只是寻找下一次机会。<strong>它需要理解趋势、管理风险、运用技术、持续成长，并连接更大的价值。</strong></span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       12. CUSTOM IN-APP MODALS (Doc Reader, Video Player, Multilingual Growth, Cmd+K)
+       ========================================================================= -->
+
+  <!-- 1. Document Reader Modal -->
+  <div class="custom-modal-backdrop" id="custom-doc-modal">
+    <div class="modal-dialog-box" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="doc-modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--portal-cyan)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          官方资料与投研文献速览
+        </h3>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="hud-tag" id="doc-modal-badge">官方合规</span>
+          <button class="modal-close-btn" aria-label="关闭">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body" id="doc-modal-body">
+        <!-- Injected by JS -->
+      </div>
+      <div style="padding:16px 28px; background:rgba(0,0,0,0.3); border-top:1px solid var(--portal-border); display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:0.8rem; color:var(--portal-dim);">SPARK UNION CAPITAL 官方合规存证备案文件</span>
+        <a class="portal-btn-primary" id="doc-modal-download-link" href="#" download style="padding:8px 20px; font-size:0.85rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          立即下载完整原始文档
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Authentic Charity TV Video Modal -->
+  <div class="custom-modal-backdrop" id="custom-video-modal">
+    <div class="modal-dialog-box" style="max-width:960px;" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color:var(--portal-rose);"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          尼日利亚首都国家电视台官方新闻报道实录
+        </h3>
+        <button class="modal-close-btn" aria-label="关闭">&times;</button>
+      </div>
+      <div style="padding:20px; background:#000;">
+        <video class="modal-video-frame" id="modal-charity-video" controls playsinline preload="metadata">
+          <source src="assets/videos/charity-event-tv.mp4" type="video/mp4">
+          您的浏览器暂不支持原生视频播放。
+        </video>
+      </div>
+      <div style="padding:16px 24px; background:rgba(0,0,0,0.4); border-top:1px solid var(--portal-border); font-size:0.85rem; color:var(--portal-muted);">
+        <strong>媒体播报来源：</strong>尼日利亚拉各斯国家首都电视台 · SPARK 全球志愿者走进公立学校公益助学活动实况纪实。
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Multilingual Growth Plan Lightbox Modal -->
+  <div class="custom-modal-backdrop" id="custom-growth-modal">
+    <div class="modal-dialog-box" style="max-width:1080px;" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--portal-cyan)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          S1-S9 全球会员成长与生态贡献激励指南
+        </h3>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="growth-lang-tabs">
+            <button class="growth-lang-btn active" data-lang="zh">中文版</button>
+            <button class="growth-lang-btn" data-lang="en">English</button>
+            <button class="growth-lang-btn" data-lang="ko">한국어</button>
+          </div>
+          <button class="modal-close-btn" aria-label="关闭">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding:20px; text-align:center;">
+        <img class="growth-preview-img" id="growth-modal-img" src="assets/growth/GrowthPlan-ZH.jpg" alt="S1-S9 会员成长体系图">
+      </div>
+      <div style="padding:14px 28px; background:rgba(0,0,0,0.3); border-top:1px solid var(--portal-border); display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; color:var(--portal-muted);">
+        <span>支持点击右上方切换中、英、韩三种官方语言版本原图</span>
+        <a class="portal-btn-outline" href="assets/growth/GrowthPlan-ZH.jpg" download="S1-S9 会员成长体系高清图.jpg" style="padding:6px 16px; font-size:0.8rem;">
+          下载当前高清原图
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Global Command Palette (Cmd+K) Modal -->
+  <div class="custom-modal-backdrop" id="cmd-palette-modal">
+    <div class="modal-dialog-box cmd-palette-box" role="dialog" aria-modal="true">
+      <div class="cmd-input-wrapper">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--portal-cyan)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmd-palette-input" placeholder="输入关键字快速导航或查阅文献 (如 黄金、量化、MSB、PPT)...">
+        <button class="modal-close-btn" aria-label="关闭" style="width:28px; height:28px; font-size:1rem;">&times;</button>
+      </div>
+      <div class="cmd-results-list" id="cmd-results-list">
+        <div class="cmd-item" data-target="#terminal">
+          <span>📊 <strong>量化工作台 (Terminal)</strong> - 实时多资产行情与 AI 推演</span>
+          <kbd>Jump</kbd>
+        </div>
+        <div class="cmd-item" data-target="#library-section">
+          <span>📚 <strong>资料中心 (Library)</strong> - 查阅 8+ 篇官方备案与投研文献</span>
+          <kbd>Jump</kbd>
+        </div>
+        <div class="cmd-item" data-target="deck">
+          <span>📽️ <strong>商业演示文稿</strong> - 放映 23P 全屏商业路演幻灯片</span>
+          <kbd>Deck</kbd>
+        </div>
+        <div class="cmd-item" data-target="video">
+          <span>🎥 <strong>电视台纪实视频</strong> - 尼日利亚拉各斯国家电视台实录</span>
+          <kbd>Video</kbd>
+        </div>
+        <div class="cmd-item" data-target="#scale">
+          <span>📈 <strong>实力规模与数据</strong> - 480M+ AUM 与 12B+ 交易量</span>
+          <kbd>Jump</kbd>
+        </div>
+        <div class="cmd-item" data-target="#discovery">
+          <span>🌐 <strong>多维空间探索</strong> - 资产数字化与智能量化核心</span>
+          <kbd>Jump</kbd>
+        </div>
+        <div class="cmd-item" data-target="#impact">
+          <span>❤️ <strong>全球公益足迹</strong> - 尼日利亚学校与全球社区关怀</span>
+          <kbd>Jump</kbd>
+        </div>
+        <div class="cmd-item" data-target="poster">
+          <span>🖼️ <strong>官方蓝图海报</strong> - AI量化财富全景蓝图 & 新人手册</span>
+          <kbd>View</kbd>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Dedicated Visual Poster & Infographic Lightbox Modal (New Explosive Feature) -->
+  <div class="custom-modal-backdrop" id="custom-poster-modal">
+    <div class="modal-dialog-box" style="max-width:1120px;" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="poster-modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--portal-cyan)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          官方视觉海报与全景蓝图展
+        </h3>
+        <button class="modal-close-btn" aria-label="关闭">&times;</button>
+      </div>
+      <div class="modal-body" style="padding:16px; text-align:center; background:#02050c; max-height:78vh; overflow-y:auto;">
+        <img class="poster-modal-display-img" id="poster-modal-img" src="" alt="海报全景大图" style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 12px 36px rgba(0,0,0,0.8);">
+      </div>
+      <div style="padding:14px 24px; background:rgba(0,0,0,0.4); border-top:1px solid var(--portal-border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <span style="font-size:0.85rem; color:var(--portal-dim);">SPARK UNION CAPITAL 官方高清原图 · 支持自由缩放与高清下载</span>
+        <a class="portal-btn-primary" id="poster-modal-download" href="#" download style="padding:6px 20px; font-size:0.85rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          下载 4K 超高清原图
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       13. MOBILE FLOATING BOTTOM DOCK BAR (Thumb Zone Touch Navigation)
+       ========================================================================= -->
+  <nav class="mobile-bottom-dock" id="mobile-bottom-dock" aria-label="移动端快捷导航">
+    <a href="#hero" class="dock-tab-btn active">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>首页</span>
+    </a>
+
+    <a href="#terminal" class="dock-tab-btn">
+      <div class="dock-icon-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        <span class="dock-pulse-dot"></span>
+      </div>
+      <span>工作台</span>
+    </a>
+
+    <a href="#library-section" class="dock-tab-btn">
+      <div class="dock-icon-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span class="dock-num-badge">10</span>
+      </div>
+      <span>资料库</span>
+    </a>
+
+    <button class="dock-tab-btn trigger-open-deck">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      <span>路演</span>
+    </button>
+
+    <button class="dock-tab-btn" id="dock-more-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+      <span>更多</span>
+    </button>
+  </nav>
+
+  <!-- Scripts -->
+  <script type="module" src="js/background.js"></script>
+  <script type="module" src="js/interactive.js"></script>
+  <script type="module" src="js/presentation.js"></script>
+  <script type="module" src="js/portal.js"></script>
+</body>
+</html>
