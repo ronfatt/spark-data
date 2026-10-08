@@ -2476,28 +2476,27 @@ body.portal-mode {
 .hero-showcase-banners {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 960px;
-  margin: 36px auto 0;
+  gap: 16px;
   width: 100%;
+  margin: 32px 0 0;
 }
 
 .hero-banner-card {
   position: relative;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(14, 21, 40, 0.6);
   cursor: pointer;
   aspect-ratio: 16 / 9;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-banner-card:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 240, 255, 0.5);
-  box-shadow: 0 20px 48px rgba(0, 240, 255, 0.25);
+  box-shadow: 0 18px 40px rgba(0, 240, 255, 0.22);
 }
 
 .hero-banner-img {
@@ -2516,11 +2515,11 @@ body.portal-mode {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px 20px;
-  background: linear-gradient(180deg, transparent 0%, rgba(4, 7, 17, 0.88) 35%, rgba(4, 7, 17, 0.98) 100%);
+  padding: 12px 16px;
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 7, 17, 0.9) 35%, rgba(4, 7, 17, 0.98) 100%);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   text-align: left;
 }
 
@@ -2537,16 +2536,17 @@ body.portal-mode {
 }
 
 .hero-banner-title {
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #ffffff;
+  line-height: 1.35;
 }
 
 .hero-banner-link {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   color: var(--portal-cyan);
   font-weight: 600;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 /* Discovery Posters Grid */
